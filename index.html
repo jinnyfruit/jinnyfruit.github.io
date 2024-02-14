@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>닉네임분류</title>
+    <title>정벌 가문난투배치</title>
     <script>
         function classifyNickname() {
             var nickname = document.getElementById("nickname").value.trim(); // 입력값 양옆의 공백 제거
-            var classification = "분류되지 않음"; // 기본 분류
+            var classification = "너는 누구니? 정벌 사람 아닌디?"; // 기본 분류
 
-            if (nickname.includes("베베")) { classification = "TOP"; }
+            // 탑 플레이어
+            var topPlayers = ["쵸파", "고갱", "태양", "청제", "현", "로즈", "제로", "박뚜르", "뽀동", "유니", "달곰", "뚜아", "눈깔", "루시언", "밀크", "뭐로", "박똘비", "행복", "서비", "대파", "박빙수", "세경", "난꾸"];
+            // 미드 플레이어
+            var midPlayers = ["릭", "배케", "근우", "솔솔", "보라", "찬이", "0", "베베", "독고", "마포", "포카리", "김생귤", "띵커", "댕", "악동", "허당", "샹크스", "다인", "야미", "에에에에", "빈츠", "불굴의의지", "까마로"];
+            // 바텀 플레이어
+            var botPlayers = ["카츄", "별이", "최강떤더", "별", "울어버린", "나마비루", "최강대남", "개배추", "미카", "남돌", "하기콩", "추", "낑디야", "비니", "꿍디", "빡토현", "미아", "삼지창", "도복"];
 
-            alert(nickname + "은(는) " + classification + "으로 분류됩니다.");
+            if (topPlayers.includes(nickname)) { classification = "탑"; }
+            else if (midPlayers.includes(nickname)) { classification = "미드"; }
+            else if (botPlayers.includes(nickname)) { classification = "봇"; }
+
+            alert(nickname + "은(는) " + classification + " (으)로 배치하세요.");
         }
 
         // 페이지 로드 시 입력 필드에 자동으로 포커스
@@ -19,8 +28,8 @@
     </script>
 </head>
 <body>
-    <h2>닉네임 분류기</h2>
-    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
+    <h2>가문난투배치</h2>
+    <input type="text" id="nickname" placeholder="버섯커 닉네임을 입력하세요">
     <button onclick="classifyNickname()">분류 확인</button>
 </body>
 </html>
