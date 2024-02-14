@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>닉네임분류</title>
+    <script>
+        function classifyNickname() {
+            var nickname = document.getElementById("nickname").value.trim(); // 입력값 양옆의 공백 제거
+            var classification = "분류되지 않음"; // 기본 분류
+
+            if (nickname.includes("베베")) { classification = "TOP"; }
+
+            alert(nickname + "은(는) " + classification + "으로 분류됩니다.");
+        }
+
+        // 페이지 로드 시 입력 필드에 자동으로 포커스
+        window.onload = function() {
+            document.getElementById("nickname").focus();
+        };
+    </script>
+</head>
+<body>
+    <h2>닉네임 분류기</h2>
+    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
+    <button onclick="classifyNickname()">분류 확인</button>
+</body>
+</html>
