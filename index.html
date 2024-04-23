@@ -33,24 +33,29 @@
     </style>
     <script>
         function classifyNickname() {
-            var nickname = document.getElementById("nickname").value.trim();
-            var classification = "너는 누구니? 정벌 사람 아닌디?";
-            var topPlayers = ["쵸파", "고갱"];
-            var midPlayers = ["릭", "배케"];
-            var botPlayers = ["카츄", "별이"];
-            if (topPlayers.includes(nickname)) { classification = "탑"; }
-            else if (midPlayers.includes(nickname)) { classification = "미드"; }
-            else if (botPlayers.includes(nickname)) { classification = "봇"; }
-            alert(nickname + "은(는) " + classification + " (으)로 배치하세요.");
+        var nickname = document.getElementById("nickname").value.trim();
+        var classification = "닉네임을 다시 입력해주세요!"; // 기본 메시지
+
+        // 업데이트된 플레이어 목록
+        var topPlayers = ["헐크", "음바쿠", "카니지", "스트레인지", "콜슨", "그루트", "욘두", "완돌이", "울트론", "앤트맨", "와스프", "실버서퍼", "로켓", "데드풀", "호크아이", "제인", "드랙스", "마사", "퍼니셔", "슈리", "가모라", "마블", "헬라", "고스트라이더", "에이션트", "베베"];
+        var botPlayers = ["솔져", "토르", "캡틴", "도둑", "블랙팬서", "베놈", "아이언맨", "헤임달", "제우스", "웡", "태극기", "모비우스", "타임리", "블랙위도우", "매그니토", "오딘", "맨티스", "블랙캣", "로키", "가디언", "네뷸라", "팔콘", "뽀로로", "자비스", "닉퓨리", "분홍헐크", "밤양갱", "ZERO", "0"];
+        var midPlayers = ["스타로드", "마담웹", "캡틴마블", "울버린", "콜라", "네드", "타노스", "오코예", "스파이더맨", "길가메시"];
+
+        if (topPlayers.includes(nickname)) {
+            classification = "탑";
+        } else if (midPlayers.includes(nickname)) {
+            classification = "미드";
+        } else if (botPlayers.includes(nickname)) {
+            classification = "봇";
         }
-        window.onload = function() {
-            document.getElementById("nickname").focus();
-        };
+
+        alert(nickname + "은(는) " + classification + " (으)로 배치하세요.");
+    }
     </script>
 </head>
 <body>
-    <h2>가문난투배치</h2>
-    <input type="text" id="nickname" placeholder="버섯커닉네임을 입력하세요">
+    <h2>🍄신비 가문난투배치🍄</h2>
+    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
     <button onclick="classifyNickname()">분류 확인</button>
 </body>
 </html>
