@@ -3,7 +3,7 @@
 <head>
     <title>버섯커 S311 신비가문</title>
     <meta property="og:title" content="버섯커 S311 신비가문">
-    <meta property="og:description" content="신비 가문 사람들 모여라~ 닉네임을 입력하여 가문난투배치를 확인하세요.">
+    <meta property="og:description" content="신비가문 사람들 모여라~ 닉네임을 입력하여 가문난투배치를 확인하세요.">
     <meta property="og:image" content="https://raw.githubusercontent.com/jinnyfruit/jinnyfruit.github.io/main/image.jpg">
     <meta property="og:url" content="https://jinnyfruit.github.io">
     <meta property="og:type" content="website">
@@ -36,32 +36,51 @@
         button:hover {
             background-color: #8855A8;
         }
+        #resultText {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #8855A8;
+        }
+        #classificationImage {
+            margin-top: 10px;
+            width: 300px;
+            height: 300px;
+        }
     </style>
+</head>
+<body>
+    <h2>🍄신비 가문난투배치🍄</h2>
+    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
+    <button onclick="classifyNickname()">위치 확인</button>
+    <div id="resultText"></div>
+    <img id="classificationImage" src="" alt="분류 이미지" style="display:none;">
     <script>
         function classifyNickname() {
             var nickname = document.getElementById("nickname").value.trim();
-            var classification = "닉네임을 다시 입력해주세요!"; // 기본 메시지
+            var resultText = document.getElementById("resultText");
+            var classificationImage = document.getElementById("classificationImage");
+            var classification = "닉네임을 다시 입력해주세요!";
+            var imageUrl = "";
 
-            // 업데이트된 플레이어 목록
             var topPlayers = ["헐크", "음바쿠", "카니지", "스트레인지", "콜슨", "그루트", "욘두", "완돌이", "울트론", "앤트맨", "와스프", "실버서퍼", "로켓", "데드풀", "호크아이", "제인", "드랙스", "마사", "퍼니셔", "슈리", "가모라", "마블", "헬라", "고스트라이더", "에이션트", "베베"];
             var botPlayers = ["솔져", "토르", "캡틴", "도둑", "블랙팬서", "베놈", "아이언맨", "헤임달", "제우스", "웡", "태극기", "모비우스", "타임리", "블랙위도우", "매그니토", "오딘", "맨티스", "블랙캣", "로키", "가디언", "네뷸라", "팔콘", "뽀로로", "자비스", "닉퓨리", "분홍헐크", "밤양갱", "ZERO", "0"];
             var midPlayers = ["스타로드", "마담웹", "캡틴마블", "울버린", "콜라", "네드", "타노스", "오코예", "스파이더맨", "길가메시"];
             
             if (topPlayers.includes(nickname)) {
                 classification = "탑";
+                imageUrl = "top.jpg";
             } else if (midPlayers.includes(nickname)) {
                 classification = "미드";
+                imageUrl = "mid.jpg";
             } else if (botPlayers.includes(nickname)) {
                 classification = "봇";
+                imageUrl = "bot.jpg";
             }
 
-            alert(nickname + "님 " + classification + " (으)로 배치하세요.");
+            resultText.textContent = nickname + "님은 " + classification + " (으)로 배치하세요.";
+            classificationImage.src = imageUrl;
+            classificationImage.style.display = "block"; // 이미지를 보여주는 부분
         }
     </script>
-</head>
-<body>
-    <h2>🍄신비 가문난투배치🍄</h2>
-    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
-    <button onclick="classifyNickname()">분류 확인</button>
 </body>
 </html>
