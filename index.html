@@ -11,80 +11,57 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #FDEFF9; /* 밝은 핑크색 배경 */
+            background-color: #f0e6f6;
             color: #333;
             text-align: center;
             padding: 20px;
-            background-image: linear-gradient(to right top, #f7c6ff, #ffccff, #ffdcf5, #ffebf5, #ffffff); /* 그라디언트 배경 */
         }
         h2 {
             color: #8855A8;
-            font-size: 28px;
-            text-shadow: 2px 2px 4px #BAA7D0; /* 텍스트에 그림자 효과 추가 */
         }
         input, button {
             font-size: 16px;
-            padding: 15px;
+            padding: 10px;
             margin: 10px;
-            border: 2px solid #BAA7D0;
-            border-radius: 20px;
+            border: none;
+            border-radius: 10px;
             box-shadow: 2px 2px 5px #ccc;
-            transition: transform 0.3s, box-shadow 0.3s; /* 변환 및 그림자 애니메이션 효과 */
-        }
-        input:focus, button:hover {
-            transform: scale(1.05); /* 포커스 또는 호버 시 확대 효과 */
-            box-shadow: 0 0 15px #8855A8; /* 그림자 강조 */
         }
         button {
             background-color: #A88CB8;
             color: white;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #8855A8;
-        }
-        .classification-image {
-            width: 300px;
-            height: 300px;
-            margin-top: 10px;
+        button:hover {
+            background-color: #8855A8;
         }
     </style>
-</head>
-<body>
-    <h2>🍄신비 가문난투배치🍄</h2>
-    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
-    <button onclick="classifyNickname()">분류 확인</button>
-    <div id="resultContainer" class="result"></div>
-    <img id="classificationImage" class="classification-image" src="" alt="분류 이미지">
     <script>
         function classifyNickname() {
             var nickname = document.getElementById("nickname").value.trim();
-            var resultContainer = document.getElementById("resultContainer");
-            var classificationImage = document.getElementById("classificationImage");
-            var classification = "닉네임을 다시 입력해주세요!";
-            var imageUrl = "";
+            var classification = "닉네임을 다시 입력해주세요!"; // 기본 메시지
 
+            // 업데이트된 플레이어 목록
             var topPlayers = ["헐크", "음바쿠", "카니지", "스트레인지", "콜슨", "그루트", "욘두", "완돌이", "울트론", "앤트맨", "와스프", "실버서퍼", "로켓", "데드풀", "호크아이", "제인", "드랙스", "마사", "퍼니셔", "슈리", "가모라", "마블", "헬라", "고스트라이더", "에이션트", "베베"];
             var botPlayers = ["솔져", "토르", "캡틴", "도둑", "블랙팬서", "베놈", "아이언맨", "헤임달", "제우스", "웡", "태극기", "모비우스", "타임리", "블랙위도우", "매그니토", "오딘", "맨티스", "블랙캣", "로키", "가디언", "네뷸라", "팔콘", "뽀로로", "자비스", "닉퓨리", "분홍헐크", "밤양갱", "ZERO", "0"];
             var midPlayers = ["스타로드", "마담웹", "캡틴마블", "울버린", "콜라", "네드", "타노스", "오코예", "스파이더맨", "길가메시"];
             
             if (topPlayers.includes(nickname)) {
                 classification = "탑";
-                imageUrl = "top.png";
             } else if (midPlayers.includes(nickname)) {
                 classification = "미드";
-                imageUrl = "mid.png";
             } else if (botPlayers.includes(nickname)) {
                 classification = "봇";
-                imageUrl = "bot.png";
             }
 
-            resultContainer.textContent = nickname + "은(는) " + classification + " (으)로 배치하세요.";
-            classificationImage.src = imageUrl;
-            classificationImage.alt = classification + " 분류 이미지";
+            alert(nickname + "은(는) " + classification + " (으)로 배치하세요.");
         }
     </script>
+</head>
+<body>
+    <h2>🍄신비 가문난투배치🍄</h2>
+    <input type="text" id="nickname" placeholder="닉네임을 입력하세요">
+    <button onclick="classifyNickname()">분류 확인</button>
 </body>
 </html>
