@@ -68,13 +68,13 @@
 
             if (topPlayers.includes(nickname)) {
                 classification = "탑";
-                imageUrl = "images/top.png";  // Assume images are stored in an 'images' directory
+                imageUrl = "top.png";  // Assume images are stored in an 'images' directory
             } else if (midPlayers.includes(nickname)) {
                 classification = "미드";
-                imageUrl = "images/mid.png";
+                imageUrl = "mid.png";
             } else if (botPlayers.includes(nickname)) {
                 classification = "봇";
-                imageUrl = "images/bot.png";
+                imageUrl = "bot.png";
             }
 
             resultText.textContent = nickname + "님은 " + classification + " (으)로 배치하세요.";
