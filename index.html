@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>버섯커 S311 정벌가문</title>
+    <title>버섯커 S311 신비가문</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -35,9 +35,9 @@
         function classifyNickname() {
             var nickname = document.getElementById("nickname").value.trim();
             var classification = "너는 누구니? 정벌 사람 아닌디?";
-            var topPlayers = ["쵸파", "고갱", ...];
-            var midPlayers = ["릭", "배케", ...];
-            var botPlayers = ["카츄", "별이", ...];
+            var topPlayers = ["쵸파", "고갱"];
+            var midPlayers = ["릭", "배케"];
+            var botPlayers = ["카츄", "별이"];
             if (topPlayers.includes(nickname)) { classification = "탑"; }
             else if (midPlayers.includes(nickname)) { classification = "미드"; }
             else if (botPlayers.includes(nickname)) { classification = "봇"; }
