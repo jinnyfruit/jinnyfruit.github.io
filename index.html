@@ -2,26 +2,47 @@
 <html>
 <head>
     <title>버섯커 S311 정벌가문</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0e6f6;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h2 {
+            color: #8855A8;
+        }
+        input, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px #ccc;
+        }
+        button {
+            background-color: #A88CB8;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #8855A8;
+        }
+    </style>
     <script>
         function classifyNickname() {
-            var nickname = document.getElementById("nickname").value.trim(); // 입력값 양옆의 공백 제거
-            var classification = "너는 누구니? 정벌 사람 아닌디?"; // 기본 분류
-
-            // 탑 플레이어 업데이트된 목록
-            var topPlayers = ["쵸파", "고갱", "태양", "제로", "청제", "보라", "박뚜르", "찬이", "0", "달곰", "하랑하린", "유니", "뚜아", "띵커", "악동", "눈깔", "김생귤", "창석", "박똘비", "세경", "대파", "빈츠", "난꾸", "남돌", "하기콩", "최강대남", "비니", "빡토현"];
-            // 미드 플레이어 업데이트된 목록
-            var midPlayers = ["릭", "배케", "근우", "현", "솔솔", "뽀동", "로즈", "마포", "베베", "독고", "포카리", "김프로", "루시언", "행복", "댕", "샹크스", "허당", "에에에에", "뭐로", "밀크", "다인", "박빙수", "야미", "불굴의의지", "까마로", "추", "미아", "삼지창"];
-            // 바텀 플레이어 업데이트된 목록
-            var botPlayers = ["카츄", "별이", "최강떤더", "별", "서비", "울어버린", "나마비루", "개배추", "미카"];
-
+            var nickname = document.getElementById("nickname").value.trim();
+            var classification = "너는 누구니? 정벌 사람 아닌디?";
+            var topPlayers = ["쵸파", "고갱", ...];
+            var midPlayers = ["릭", "배케", ...];
+            var botPlayers = ["카츄", "별이", ...];
             if (topPlayers.includes(nickname)) { classification = "탑"; }
             else if (midPlayers.includes(nickname)) { classification = "미드"; }
             else if (botPlayers.includes(nickname)) { classification = "봇"; }
-
             alert(nickname + "은(는) " + classification + " (으)로 배치하세요.");
         }
-
-        // 페이지 로드 시 입력 필드에 자동으로 포커스
         window.onload = function() {
             document.getElementById("nickname").focus();
         };
