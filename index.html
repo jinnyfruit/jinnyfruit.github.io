@@ -19,21 +19,22 @@
         #title-container {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
             justify-content: center;
+            margin-bottom: 20px;
             text-align: center;
         }
         #small-image {
             width: 40px;
             height: 40px;
             margin-right: 10px;
-            margin-bottom: 10px;
+        }
+        h1 {
+            margin: 0;
         }
         #search-box {
-            width: 90%; /* Change width to 90% for better responsiveness */
+            width: 90%;
             max-width: 600px;
-            padding: 12px 16px; /* Slightly reduced padding for improved fit on small screens */
+            padding: 12px 16px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 20px;
@@ -51,10 +52,15 @@
             width: 100%;
             max-width: 600px;
             display: none;
+            padding: 10px; /* Added padding for better spacing around results */
+            box-sizing: border-box;
         }
         .result-item {
-            padding: 8px;
-            border-bottom: 1px solid #e0e0e0;
+            padding: 12px; /* Added padding for better readability */
+            margin-bottom: 8px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background-color: #f9f9f9;
             word-wrap: break-word;
         }
 
@@ -63,14 +69,11 @@
             #small-image {
                 width: 30px;
                 height: 30px;
-                margin-right: 5px;
-            }
-            #title-container {
-                flex-direction: column;
+                margin-right: 8px;
             }
             #search-box {
                 font-size: 14px;
-                padding: 10px 12px; /* Adjusted padding for mobile */
+                padding: 10px 12px;
             }
             .result-item {
                 font-size: 14px;
@@ -81,7 +84,7 @@
 <body>
     <div id="title-container">
         <img id="small-image" src="test.jpeg" alt="Small Square Image">
-        <h1>버섯커 퀴즈 답안</h1>
+        <h1>버섯커 퍼니퀴즈 답안검색</h1>
     </div>
     <input type="text" id="search-box" placeholder="가사 입력..." oninput="fetchResults()">
     <div id="results"></div>
