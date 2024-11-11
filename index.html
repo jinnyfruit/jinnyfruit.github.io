@@ -52,11 +52,11 @@
             width: 100%;
             max-width: 600px;
             display: none;
-            padding: 10px; /* Added padding for better spacing around results */
+            padding: 10px;
             box-sizing: border-box;
         }
         .result-item {
-            padding: 12px; /* Added padding for better readability */
+            padding: 12px;
             margin-bottom: 8px;
             border: 1px solid #e0e0e0;
             border-radius: 5px;
@@ -66,6 +66,9 @@
 
         /* Media Query for Mobile */
         @media (max-width: 600px) {
+            #title-container {
+                flex-direction: row; /* Keep image and text side by side */
+            }
             #small-image {
                 width: 30px;
                 height: 30px;
