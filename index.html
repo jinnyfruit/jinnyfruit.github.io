@@ -12,7 +12,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            padding: 0 15px; /* Padding for better spacing on mobile */
+            padding: 0 15px;
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
@@ -20,20 +20,20 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            flex-wrap: wrap; /* Allows wrapping for smaller screens */
-            justify-content: center; /* Centers content on mobile */
+            flex-wrap: wrap;
+            justify-content: center;
             text-align: center;
         }
         #small-image {
-            width: 40px; /* Adjust size for smaller screens */
+            width: 40px;
             height: 40px;
             margin-right: 10px;
-            margin-bottom: 10px; /* Spacing for better layout */
+            margin-bottom: 10px;
         }
         #search-box {
-            width: 100%;
+            width: 90%; /* Change width to 90% for better responsiveness */
             max-width: 600px;
-            padding: 12px 20px;
+            padding: 12px 16px; /* Slightly reduced padding for improved fit on small screens */
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 20px;
@@ -50,30 +50,30 @@
             margin-top: 20px;
             width: 100%;
             max-width: 600px;
-            display: none; /* Hidden by default */
+            display: none;
         }
         .result-item {
             padding: 8px;
             border-bottom: 1px solid #e0e0e0;
-            word-wrap: break-word; /* Ensures text wraps for narrow screens */
+            word-wrap: break-word;
         }
 
         /* Media Query for Mobile */
         @media (max-width: 600px) {
             #small-image {
-                width: 30px; /* Further reduce size on smaller screens */
+                width: 30px;
                 height: 30px;
                 margin-right: 5px;
             }
             #title-container {
-                flex-direction: column; /* Stack elements vertically */
+                flex-direction: column;
             }
             #search-box {
-                font-size: 14px; /* Adjust font size */
-                padding: 10px 15px; /* Adjust padding */
+                font-size: 14px;
+                padding: 10px 12px; /* Adjusted padding for mobile */
             }
             .result-item {
-                font-size: 14px; /* Smaller font for results */
+                font-size: 14px;
             }
         }
     </style>
@@ -95,7 +95,7 @@
             resultsContainer.innerHTML = '';
 
             if (query === '') {
-                resultsContainer.style.display = 'none'; // Hide results if input is empty
+                resultsContainer.style.display = 'none';
                 return;
             }
 
@@ -103,14 +103,14 @@
             const results = await response.json();
 
             if (results.length > 0) {
-                resultsContainer.style.display = 'block'; // Show results container
+                resultsContainer.style.display = 'block';
                 resultsContainer.innerHTML = results.map(result => `<div class="result-item">${result}</div>`).join('');
             } else {
-                resultsContainer.style.display = 'none'; // Hide results container if no matches
+                resultsContainer.style.display = 'none';
             }
         }
 
-        // Embedded Flask-like backend using a lightweight JavaScript simulation (for demonstration)
+        // Simulated API endpoint for demo purposes
         const LYRICS = [
         "미소짓던 그표정이 시도 때도 없던 입맞춤이",
 "우리 걷던 이길위에 흘러나오던 멜로디",
@@ -271,20 +271,12 @@
 
         ];
 
-        // Simulated API endpoint
         function fetch(url) {
             return new Promise((resolve) => {
-                // Extract the query from the URL
                 const urlParams = new URLSearchParams(url.split('?')[1]);
                 const query = urlParams.get('q') || '';
-
-                // Simple matching logic (case-insensitive check)
                 const results = LYRICS.filter(lyric => lyric.toLowerCase().includes(query));
-
-                // Simulate a server response
-                resolve({
-                    json: () => Promise.resolve(results)
-                });
+                resolve({ json: () => Promise.resolve(results) });
             });
         }
     </script>
